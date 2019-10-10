@@ -1,23 +1,15 @@
 def three_even?(list)
-    count = 0
-    count2 = 0
     if list.size == 0
         return false
     end
     (list.size-2).times do |i|
-        slice2 = list[i..(i+2)]
-        slice2.each do |n|
-            count += n
-        end
-        if count % 2 == 1
-            count2 += 1
+        slice = list[i..(i+2)]
+        # I had to check every number in the slice to see if it equaled an even number and the % had to equal 0
+        if slice[0] % 2 == 0 && slice[1] % 2 == 0 && slice[2] % 2 == 0
+            return true
         end
     end
-    if count2 >=1
-        return true
-    else
-        return false
-    end
+    return false
 end
 puts three_even? ([2,1,3,5]) #false
 puts three_even? ([2,4,12,5]) #true
@@ -43,16 +35,23 @@ def bigger_two(list1,list2)
         return list1
     end
 end
-print bigger_two([1,2],[3,4]) #[3,4]
-print bigger_two([1,7],[4,4]) #[1,7]
+print bigger_two([1,2],[3,4]), "\n" #[3,4]
+print bigger_two([1,7],[4,4]), "\n" #[1,7]
 
 def series_up(n)
-    ary=[1,2,3,4,5,6,7,8,9,10]
-    new_array = []
-    n.times do |i|
-        new_array.push(ary[i])
+    new_ary = []
+    a = 1 #starting points
+    b = 1 # starting points
+    while a <= n #while loops will keep it going until the list reaches the right amount no matter what number the n is
+        while b <= a
+            new_ary.push(b) # pushes 1 and any number above it until it reaches m so if m is 3 it will keep pushing numbers in order until it reaches 3
+            b += 1 # makes the l increase until reaches m
+        end
+         
+        b = 1 #makes the list print out 1 and 2 for example or 1, 2, and 3
+        a += 1 # makes the m increase until reaches n
     end
-    print new_array, "\n"
+    print new_ary, "\n"
 end
 series_up(1)
 series_up(2)
