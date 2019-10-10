@@ -43,7 +43,7 @@ def series_up(n)
     a = 1 #starting points
     b = 1 # starting points
     while a <= n #while loops will keep it going until the list reaches the right amount no matter what number the n is
-        while b <= a
+        while b <= a # It will make it so it knows when to stop inputting numbers into the new list
             new_ary.push(b) # pushes 1 and any number above it until it reaches m so if m is 3 it will keep pushing numbers in order until it reaches 3
             b += 1 # makes the l increase until reaches m
         end
